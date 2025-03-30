@@ -82,6 +82,7 @@ class Game {
 
     clicksListener = () => {
         document.addEventListener('click', (event) => {
+            console.log(this.booleans.isEven);
             const targetElement = event.target;
         
             if (targetElement.classList.contains('button')) {
@@ -209,7 +210,8 @@ class Game {
 
     showWinner = () => {
         const winnerElement = document.querySelector('[data-js-winner]');
-        winnerElement.textContent = this.isEven ? 'O' : 'X';
+        if (this.booleans.isEven) winnerElement.textContent = 'O';
+        else winnerElement.textContent = 'X';
     }
 
     // Форма
@@ -219,8 +221,14 @@ class Game {
         formElement.addEventListener('submit', event => {
             event.preventDefault();
             const formValues = event.target.elements;
+            const winnerElement = document.querySelector('[data-js-winner]');
+
             this.consts.fieldSize = formValues["field-size"].value;
             this.consts.chipsToWin = formValues["chips-to-win"].value;
+
+            this.booleans.isLock = false;
+            winnerElement.textContent = 'не определён';
+            this.booleans.isEven = false;
             this.createField(this.consts.fieldSize);
             this.displayField(this.field);
         })
