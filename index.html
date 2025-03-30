@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+
+    <link rel="stylesheet" href="./main.css">
+    <!-- <script src="./scripts/functions.js" defer></script>
+    <script src="./scripts/app.js" defer></script> -->
+    <script src="./scripts/main.js" type="module" defer></script>
+</head>
+<body>
+    <div class="info">
+        <h1 class="winner">Победитель: <span data-js-winner>не определён</span></h1>
+
+        <form class="form">
+            <fieldset class="form__fieldset">
+                <label class="form__label" for="field-size">Размер поля</label>
+                <input
+                    type="number"
+                    name="field-size"
+                    value="15"
+                    class="form__textfield"
+                    id="field-size"
+                    min="3"
+                    max="15"
+                />
+
+                <label class="form__label" for="chips-to-win">Длина ряда<br>для выигрыша</label>
+                <input
+                    type="number"
+                    name="chips-to-win"
+                    value="5"
+                    class="form__textfield"
+                    id="chips-to-win"
+                    min="3"
+                    max="10"
+                />
+
+                <button class="form__button" type="submit">Играть!</button>
+            </fieldset>
+        </form>
+    </div>
+    
+    <div class="container"></div>
+
+</body>
+</html>
